@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Three.js Boilerplate</title>
+        <style>
+body {
+    margin: 0;
+    overflow: hidden;
+}
+        </style>
+    </head>
+    <body>
+        <div id="WebGL-output">
+        </div>
+        <script src="//cdn.rawgit.com/mrdoob/three.js/master/build/three.min.js"></script>
+        <script src="OrbitControls.js"></script>
+        <script type="text/javascript">
+
+var camera, scene, renderer, controls;
+var cubeMesh;
+
+init();
+animate();
+
+function init() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 0.01, 100 );
+    controls = new THREE.OrbitControls(camera); 
+    controls.update();
+
+    camera.position.set(10, 10, 10);
+    camera.lookAt(0,0,0);
+
+    var axesHelper = new THREE.AxesHelper(5);
+    scene.add( axesHelper );
+
+    //add meshes to scene here
+
+
+
+
+    controls.update();
+    renderer = new THREE.WebGLRenderer( { antialias: true } );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+}
+
+function animate() {
+    requestAnimationFrame( animate );
+
+
+    //modify mesh positions/rotations declared above to animate them
+
+
+    renderer.render( scene, camera );
+}
+        </script>
+    </body>
+</html>
